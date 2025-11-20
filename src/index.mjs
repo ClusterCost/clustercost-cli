@@ -23,6 +23,8 @@ const DASHBOARD_TARGET_PORT = 9090;
 const DASHBOARD_LOCAL_PORT = 3000;
 const AGENT_SERVICE_HOST = `${AGENT_RELEASE}-${AGENT_CHART.split('/')[1]}`;
 const AGENT_SERVICE_PORT = 8080;
+const DEFAULT_AGENT_NAME = 'local-cluster';
+const DEFAULT_AGENT_TYPE = 'k8s';
 
 let installState = {
   agent: null,
@@ -479,7 +481,14 @@ export function buildDashboardHelmArgs(namespace) {
   ];
 
   if (namespace !== DEFAULT_NAMESPACE) {
-    args.push('--set-string', `agents[0].baseUrl=${buildAgentBaseUrl(namespace)}`);
+    args.push(
+      '--set-string',
+      `agents[0].baseUrl=${buildAgentBaseUrl(namespace)}`,
+      '--set-string',
+      `agents[0].name=${DEFAULT_AGENT_NAME}`,
+      '--set-string',
+      `agents[0].type=${DEFAULT_AGENT_TYPE}`
+    );
   }
 
   return args;

@@ -44,5 +44,7 @@ describe('dashboard Helm args', () => {
     expect(args).toContain(
       'agents[0].baseUrl=http://clustercost-agent-clustercost-agent-k8s.team-a.svc.cluster.local:8080'
     );
+    expect(args).toContain('agents[0].name=local-cluster');
+    expect(args).toContain('agents[0].type=k8s');
   });
 });
