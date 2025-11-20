@@ -4,7 +4,7 @@
   "description": "Interactive installer for the ClusterCost agent and dashboard.",
   "type": "module",
   "bin": {
-    "clustercost": "./bin/cli.mjs"
+    "clustercost": "bin/cli.mjs"
   },
   "scripts": {
     "start": "node ./bin/cli.mjs",
@@ -25,5 +25,13 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JesusPaz/clustercost-cli"
+  },
+  "homepage": "https://github.com/JesusPaz/clustercost-cli#readme",
+  "bugs": {
+    "url": "https://github.com/JesusPaz/clustercost-cli/issues"
   }
 }
